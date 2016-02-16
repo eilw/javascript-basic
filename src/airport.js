@@ -20,6 +20,9 @@ Airport.prototype.takeOff = function(plane) {
   if (this.weather.isStorm()){
     throw 'cannot takeoff in a storm';
   };
+  if (this.planes.indexOf(plane) === -1){
+    throw 'Plane not in airport'
+  };
   this.planes.splice(this.planes.indexOf(plane), 1);
 };
 

@@ -79,6 +79,12 @@ describe("Airport", function(){
       expect(function(){airport.takeOff(plane);}).toThrow('cannot takeoff in a storm');
     });
 
+    it("a plane can only takeoff if it is in the airport",function(){
+      airport2 = new Airport(weather);
+      airport2.land(plane);
+      expect(function(){airport.takeOff(plane);}).toThrow('Plane not in airport');
+    });
+
   });
 
 });
